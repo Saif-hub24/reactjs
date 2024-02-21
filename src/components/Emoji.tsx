@@ -1,0 +1,20 @@
+import { Image, ImageProps } from "@chakra-ui/react";
+
+import emoji1 from "../assets/emoji_1.webp";
+import emoji2 from "../assets/emoji-2.webp";
+import emoji3 from "../assets/emoji_3.webp";
+
+// interface Props {
+//   rating: number;
+// }
+const Emoji = ({ rating }: { rating: number }) => {
+  if (rating < 3) return null;
+
+  const emojiMap: { [key: number]: ImageProps } = {
+    3: { src: emoji1, alt: "meh", boxSize: "25px" },
+    4: { src: emoji2, alt: "recumended", boxSize: "25px" },
+    5: { src: emoji3, alt: "excepyional", boxSize: "35px" },
+  };
+  return <Image {...emojiMap[rating]} marginTop={1} />;
+};
+export default Emoji;
