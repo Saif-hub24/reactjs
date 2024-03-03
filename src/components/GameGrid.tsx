@@ -5,6 +5,7 @@ import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardContainer from "./GameCardContainer";
 import GameCardSkeleton from "./GameCardSkeleton";
+import { Link } from "react-router-dom";
 
 const GameGrid = () => {
   const {
@@ -43,9 +44,11 @@ const GameGrid = () => {
         {data?.pages.map((page, index) => (
           <React.Fragment key={index}>
             {page?.results.map((game) => (
-              <GameCardContainer key={game.id}>
-                <GameCard game={game} />
-              </GameCardContainer>
+              <Link to={`/game/${game.id}`}>
+                <GameCardContainer key={game.id}>
+                  <GameCard game={game} />
+                </GameCardContainer>
+              </Link>
             ))}
           </React.Fragment>
         ))}
