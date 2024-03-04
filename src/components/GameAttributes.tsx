@@ -1,4 +1,4 @@
-import { SimpleGrid, Text } from "@chakra-ui/react";
+import { AspectRatio, SimpleGrid, Text } from "@chakra-ui/react";
 import CriticScore from "./CriticScore";
 import Definitionitem from "./Definitionitem";
 import { Game } from "../entities/Game";
@@ -20,12 +20,12 @@ const GameAttributes = ({ game }: Props) => {
         </Definitionitem>
         <Definitionitem term="Genres">
           {game.genres.map((genre) => (
-            <Text>{genre.name}</Text>
+            <Text key={genre.id}>{genre.name}</Text>
           ))}
         </Definitionitem>
         <Definitionitem term="Publishers">
           {game.publishers?.map((publisher) => (
-            <Text>{publisher.name}</Text>
+            <Text key={publisher.id}>{publisher.name}</Text>
           ))}
         </Definitionitem>
       </SimpleGrid>
